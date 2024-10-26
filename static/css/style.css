@@ -1,0 +1,27 @@
+/* Fondo y estilo general */
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Estilo para el título */
+h1 {
+    color: #007bff;
+}
+
+/* Estilo para las listas */
+.list-group-item {
+    background-color: #ffffff;
+    border-color: #ced4da;
+}
+
+/* Estilo para los botones */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}

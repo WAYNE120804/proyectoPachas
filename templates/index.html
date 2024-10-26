@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros Repetidos y Sin Repetir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .list-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .list {
+            width: 45%;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Números Repetidos y Sin Repetir</h1>
+        <p>La aplicación toma una lista de números y divide esta lista entre los números repetidos (pachas) y números con cifras no repetidas. Por ejemplo, el 1231 iría en la lista pacha ya que se repite el 1, el 4532 iría en la lista no pachas ya que ningún número se repite.</p>
+        <form action="/" method="post">
+            <textarea name="numeros" rows="10" cols="50" placeholder="Pega aquí la lista de números"></textarea><br><br>
+            <button type="submit">Procesar</button>
+        </form>
+        <div class="list-container">
+            <div class="list">
+                <h3>Números con Dígitos Repetidos</h3>
+                <pre id="repetidos">{{ numeros_repetidos | join('\n') }}</pre>
+                <button onclick="copiarAlPortapapeles('repetidos')">Copiar</button>
+            </div>
+            <div class="list">
+                <h3>Números sin Dígitos Repetidos</h3>
+                <pre id="sin_repetidos">{{ numeros_sin_repetidos | join('\n') }}</pre>
+                <button onclick="copiarAlPortapapeles('sin_repetidos')">Copiar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function copiarAlPortapapeles(id) {
+            // Seleccionamos el contenido del elemento
+            var contenido = document.getElementById(id).innerText;
+            // Usamos la API de portapapeles para copiar el texto
+            navigator.clipboard.writeText(contenido).then(function() {
+                alert("Texto copiado al portapapeles");
+            }).catch(function(err) {
+                console.error("Error al copiar al portapapeles", err);
+            });
+        }
+    </script>
+</body>
+</html>
